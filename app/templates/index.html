@@ -1,0 +1,48 @@
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+
+  <body>
+    <div id="navbar">
+      <b>:#/</b> lurch
+    </div>
+
+    <div id="container">
+      <div id="temp_box">
+        <div id="temp_title">
+          Temperature
+        </div>
+        <div id="temp"><h1>{{ temp }}°</h1></div>
+      </div>
+
+      <div id="control_panel">
+        <h5>Control Panel</h5>
+        Supplementary heating: <span class="{{ heating_status }}">{{ heating_status }}</span><br>
+        Supplementary heating threshold: <span >{{ heating_threshold }}°</span><br>
+        Automatic heating managemant: <span class="{{ auto_heating_status }}">{{ auto_heating_status }}</span>
+      </div>
+
+      <div id="auto_heating_settings">
+        <form action="/supplementary_heating_settings">
+          <h5>Supplementary heating settings</h5>
+            Threshold:<br>
+            <input type="text" name="threshold"><br>&nbsp;<br>
+
+            Status:<br>
+            <input type="radio" name="status" value="enabled" checked> Enabled<br>
+            <input type="radio" name="status" value="disabled"> Disabled<br>&nbsp;<br>
+
+            <input type="submit" value="Save">
+        </form>
+      </div>
+
+      <div id="footer">
+        Lurch is an open source project by <a href="https://www.promezio.it">:#/ promezio</a>
+      </div>
+    </div>
+  </body>
+
+</html>
