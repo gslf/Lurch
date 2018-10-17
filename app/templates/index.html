@@ -3,6 +3,67 @@
   <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+      html, body{
+        margin:0;
+        padding:0;
+      }
+      #navbar{
+        margin:0;
+        padding:0 15px;
+        width:100%;
+        height:42px;
+        line-height:42px;
+        font-size:18pt;
+        background-color:#7fb3d5;
+        color:#FFF;
+      }
+
+      #container{
+        display:flex;
+        flex-wrap:wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items:center;
+        width:100%;
+        max-width:800px;
+        margin:0 auto;
+      }
+
+      #newline{
+        width:100%;
+        height:1px;
+      }
+
+      #temp_box{
+        flex-grow:2;
+        text-align:center;
+        padding:15px;
+      }
+
+      #temp{
+        text-align:center;
+      }
+
+      #control_panel{
+        flex-grow:8;
+        text-align:right;
+        padding:15px;
+      }
+
+      #footer{
+        padding:15px;
+      }
+
+      .on{
+        color:green;
+      }
+
+      .off{
+        color:red;
+      }
+    </style>
   </head>
 
   <body>
@@ -13,17 +74,19 @@
     <div id="container">
       <div id="temp_box">
         <div id="temp_title">
-          Temperature
+          <h5>Temperature</h5>
         </div>
         <div id="temp"><h1>{{ temp }}°</h1></div>
       </div>
 
       <div id="control_panel">
         <h5>Control Panel</h5>
-        Supplementary heating: <span class="{{ heating_status }}">{{ heating_status }}</span><br>
-        Supplementary heating threshold: <span >{{ heating_threshold }}°</span><br>
-        Automatic heating managemant: <span class="{{ auto_heating_status }}">{{ auto_heating_status }}</span>
+        Suppl. heating: <span class="{{ heating_status }}">{{ heating_status }}</span><br>
+        Suppl. heating threshold: <span >{{ heating_threshold }}°</span><br>
+        Auto heating managemant: <span class="{{ auto_heating_status }}">{{ auto_heating_status }}</span>
       </div>
+
+      <div id="newline"> </div>
 
       <div id="auto_heating_settings">
         <form action="/supplementary_heating_settings">
@@ -37,11 +100,11 @@
 
             <input type="submit" value="Save">
         </form>
-      </div>
+      </div>  
+    </div>
 
-      <div id="footer">
+    <div id="footer">
         Lurch is an open source project by <a href="https://www.promezio.it">:#/ promezio</a>
-      </div>
     </div>
   </body>
 
