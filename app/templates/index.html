@@ -89,10 +89,13 @@
       <div id="newline"> </div>
 
       <div id="auto_heating_settings">
-        <form action="/supplementary_heating_settings">
+        <form action="/" method="POST">
           <h5>Supplementary heating settings</h5>
-            Threshold:<br>
-            <input type="text" name="threshold"><br>&nbsp;<br>
+            Threshold MIN:<br>
+            <input type="text" name="threshold_min"><br>&nbsp;<br>
+
+            Threshold MAX:<br>
+            <input type="text" name="threshold_max"><br>&nbsp;<br>
 
             Status:<br>
             <input type="radio" name="status" value="enabled" checked> Enabled<br>
