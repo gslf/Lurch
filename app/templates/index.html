@@ -81,9 +81,10 @@
 
       <div id="control_panel">
         <h5>Control Panel</h5>
-        Suppl. heating: <span class="{{ heating_status }}">{{ heating_status }}</span><br>
-        Suppl. heating threshold: <span >{{ heating_threshold }}°</span><br>
-        Auto heating managemant: <span class="{{ auto_heating_status }}">{{ auto_heating_status }}</span>
+        Suppl. heating: <span class="{{ shs }}">{{ shs }}</span><br>
+        Auto heating managemant: <span class="{{ sh }}">{{ sh }}</span><br>
+        Suppl. heating threshold MAX: <span >{{ heating_threshold_MAX }}°</span><br>
+        Suppl. heating threshold MAX: <span >{{ heating_threshold_MIN }}°</span>
       </div>
 
       <div id="newline"> </div>
@@ -92,10 +93,10 @@
         <form action="/" method="POST">
           <h5>Supplementary heating settings</h5>
             Threshold MIN:<br>
-            <input type="text" name="threshold_min"><br>&nbsp;<br>
+            <input type="text" name="threshold_min" value="{{ heating_threshold_MIN }}"><br>&nbsp;<br>
 
             Threshold MAX:<br>
-            <input type="text" name="threshold_max"><br>&nbsp;<br>
+            <input type="text" name="threshold_max" value="{{ heating_threshold_MAX }}"><br>&nbsp;<br>
 
             Status:<br>
             <input type="radio" name="status" value="enabled" checked> Enabled<br>
