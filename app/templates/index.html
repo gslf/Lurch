@@ -99,8 +99,8 @@
             <input type="text" name="threshold_max" value="{{ heating_threshold_MAX }}"><br>&nbsp;<br>
 
             Status:<br>
-            <input type="radio" name="status" value="enabled" checked> Enabled<br>
-            <input type="radio" name="status" value="disabled"> Disabled<br>&nbsp;<br>
+            <input type="radio" name="status" value="enabled" {{ sh_enabled }}> Enabled<br>
+            <input type="radio" name="status" value="disabled" {{ sh_disabled }}> Disabled<br>&nbsp;<br>
 
             <input type="submit" value="Save">
         </form>

@@ -11,6 +11,9 @@ class Settings:
         # Init properties
         self._thresholdMAX = None
         self._thresholdMIN = None
+        self._suppl_heating = None
+        self._suppl_heating_status = None
+
         self._json_path = 'settings.data'
 
         # Read json
@@ -21,10 +24,14 @@ class Settings:
             # Set saved properties 
             self.thresholdMAX = data['thresholdMAX']
             self.thresholdMIN = data['thresholdMIN']
+            self.suppl_heating = data['suppl_heating']
+            self.suppl_heating_status = data['suppl_heating_status']
         else:
             # Set default properties 
             self.thresholdMAX = 40
             self.thresholdMIN = 60
+            self.suppl_heating = False
+            self.suppl_heating_status = False
 
     @property
     def thresholdMAX(self):
@@ -36,7 +43,6 @@ class Settings:
         self._thresholdMAX = value
         self.__save()
 
-
     @property
     def thresholdMIN(self):
         ''' Minimum temperature for supplementary heating '''
@@ -47,12 +53,36 @@ class Settings:
         self._thresholdMIN = value
         self.__save()
 
+    @property
+    def suppl_heating(self):
+        ''' Supplementary heating status '''
+        return self._suppl_heating
+
+    @suppl_heating.setter
+    def suppl_heating(self, value):
+        self._suppl_heating = value
+        self.__save()
+
+    @property
+    def suppl_heating_status(self):
+        ''' Supplementary heating current status '''
+        return self._suppl_heating_status
+
+    @suppl_heating_status.setter
+    def suppl_heating_status(self, value):
+        self._suppl_heating_status = value
+        self.__save()
+
+
+
     def __save(self):
         ''' Write settings in settings.data file as JSON '''
 
         data = {
             'thresholdMIN' : self.thresholdMIN,
-            'thresholdMAX' : self.thresholdMAX
+            'thresholdMAX' : self.thresholdMAX,
+            'suppl_heating' : self.suppl_heating,
+            'suppl_heating_status' : self.suppl_heating_status
         }
 
         with open(self._json_path, 'w') as outfile:  

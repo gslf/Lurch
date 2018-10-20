@@ -1,32 +1,34 @@
 from flask import render_template, request
-from app.raspberryManagemant import getTemp
-from app import app, settings, suppl_heating, suppl_heating_status
+from app import app, settings, raspberry, loop
 
 @app.route('/',methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-   
-    # Read settings/data and populate view
-    current_temp = getTemp()
+
+    # Fomr managemant
+    form_data = request.form 
+    if(form_data):
+        # Read settings from form
+        settings.thresholdMIN = int(form_data['threshold_min'])
+        settings.thresholdMAX = int(form_data['threshold_max'])
+        settings.suppl_heating = True if form_data['status'] == 'enabled' else False
+    
+    # Update settings
+    current_temp = raspberry.getTemp()
     thresholdMIN = settings.thresholdMIN
     thresholdMAX = settings.thresholdMAX
 
-    shs = 'on' if suppl_heating_status else 'off'
-    sh = 'on' if suppl_heating else 'off'
-
-    # From managemant
-    form_data = request.form 
-    if(form_data):
-        # Save form data
-        settings.thresholdMIN = form_data['threshold_min']
-        settings.thresholdMAX = form_data['threshold_max']
-    else:
-        # Read saved settings
-        #TODO
-        pass
+    # Populate view
+    shs = 'on' if settings.suppl_heating_status else 'off'
+    sh = 'on' if settings.suppl_heating else 'off'
+    sh_enabled = 'checked' if settings.suppl_heating else ''
+    sh_disabled = 'checked' if not settings.suppl_heating else ''
 
     # Run main loop
-    #TODO
+    if settings.suppl_heating :
+        loop.start()
+    else :
+        loop.stop()
 
     # Load template
-    return render_template('index.html', temp = current_temp, shs = shs, heating_threshold_MAX = thresholdMAX, heating_threshold_MIN = thresholdMIN, sh = sh)
+    return render_template('index.html', temp = current_temp, shs = shs, heating_threshold_MAX = thresholdMAX, heating_threshold_MIN = thresholdMIN, sh = sh, sh_enabled = sh_enabled, sh_disabled = sh_disabled)

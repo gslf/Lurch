@@ -1,18 +1,15 @@
 from flask import Flask
 from app.MainLoop import MainLoop
 from app.Settings import Settings
+from app.Raspberry import Raspberry
 
 # Load flask app
 app = Flask(__name__)
 
 # Load project objects
-loop = MainLoop()
 settings = Settings()
-
-# Load prject properties
-suppl_heating = False
-suppl_heating_status = False
-
+raspberry = Raspberry()
+loop = MainLoop(settings,raspberry)
 
 
 from app import routes
