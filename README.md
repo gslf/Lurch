@@ -25,7 +25,13 @@ Lurch is almost ready for use out-of-the-box. To use it simply wire the hardware
 * Heating Element 220V 1500W
 
 ## Hardware scheme
-* ToDo . . .
+![EDA Scheme](EDA.JPG)
+
+* PIN 1  -> 3.3v VCC DS18B20
+* PIN 2  -> 5v VCC SRD-05VDC-SL-C
+* PIN 6  -> GND DS18B20 + GND SRD-05VDC-SL-C
+* PIN 7  -> LN DS18B20
+* PIN 40 -> LN1 SRD-05VDC-SL-C
 
 ## Software requirements
 * Click==7.0
