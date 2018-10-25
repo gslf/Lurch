@@ -8,12 +8,12 @@ class Raspberry:
         5v Rele switch
     '''
 
-    __init__(self):
+    def __init__(self):
         # Create sensor object
-        temp_sensor = W1ThermSensor()
+        self.temp_sensor = W1ThermSensor()
 
         # Setup GPIO
-        rele = 21
+        self.rele = 21
         GPIO.setmode(GPIO.BCM)
 
 
@@ -21,14 +21,16 @@ class Raspberry:
     def getTemp(self):
         ''' Read temperature from sensor '''
 
-        return temp_sensor.get_temperature()
+        return self.temp_sensor.get_temperature()
 
 
 
     def switchSupplementaryHeating(self,status):
-        ''' Switch 5v Rele status with 21 GPIO pin ''''
+        ''' Switch 5v Rele status with 21 GPIO pin '''
 
         if status:
-            GPIO.setup(rele,GPIO.OUT)
+            print("Supplementary Heating ON")
+            GPIO.setup(self.rele,GPIO.OUT)
         else:
-            GPIO.setup(rele,GPIO.IN)
+            print("Supplementary Heating OFF")
+            GPIO.setup(self.rele,GPIO.IN)

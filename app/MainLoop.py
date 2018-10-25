@@ -18,7 +18,7 @@ class MainLoop:
         while self.running:
             current_temp = self.raspberry.getTemp()
 
-            if current_temp <= self.settings.thresholdMIN and self.settings.suppl_heating :
+            if current_temp <= self.settings.thresholdMIN and current_temp <= self.settings.thresholdMAX and self.settings.suppl_heating :
                 self.raspberry.switchSupplementaryHeating(True)
                 self.settings.suppl_heating_status = True
             else :
@@ -40,5 +40,7 @@ class MainLoop:
         self.loop.start()
 
     def stop(self):
+        self.raspberry.switchSupplementaryHeating(False)
+        self.settings.suppl_heating_status = False
         self.running = False
         self.loop = None
