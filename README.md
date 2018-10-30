@@ -7,13 +7,17 @@ Lurch is almost ready for use out-of-the-box. To use it simply wire the hardware
 
 1. Wire the hardware (instruction below)
 1. Install required library with this commands:
-    1. _sudo pip3 install w1thermsensor_
-    1. _sudo pip3 install flask_
+    ```
+    sudo pip3 install w1thermsensor
+    sudo pip3 install flask
+    ```
 1. Download & Unzip the source code in a folder
 1. Open the folder in a terminal
 1. Start the Flask webserver with this commands:
-    1. export FLASK_APP=lurch.py
-    1. sudo flask run
+    ```
+    export FLASK_APP=lurch.py
+    sudo flask run
+    ```
 1. Open a browser at 127.0.0.1:5000
 1. __Enjoy Lurch!__
 
@@ -43,6 +47,8 @@ Lurch is almost ready for use out-of-the-box. To use it simply wire the hardware
 * w1thermsensor==1.1.2
 * Werkzeug==0.14.1
 
+
+![Lurch](lurch.jpg)
 
 
 
