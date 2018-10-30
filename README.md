@@ -57,3 +57,4 @@ Lurch is almost ready for use out-of-the-box. To use it simply wire the hardware
 
 
 Powered by [:#/promezio](https://promezio.it).
+Released under GPL 3.0 license.
