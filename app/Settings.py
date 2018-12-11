@@ -9,7 +9,6 @@ class Settings:
 
     def __init__(self):
         # Init properties
-        self._thresholdMAX = None
         self._thresholdMIN = None
         self._suppl_heating = None
         self._suppl_heating_status = None
@@ -22,26 +21,15 @@ class Settings:
                 data = json.load(json_file)
 
             # Set saved properties 
-            self.thresholdMAX = data['thresholdMAX']
             self.thresholdMIN = data['thresholdMIN']
             self.suppl_heating = data['suppl_heating']
             self.suppl_heating_status = data['suppl_heating_status']
         else:
             # Set default properties 
-            self.thresholdMAX = 40
             self.thresholdMIN = 60
             self.suppl_heating = False
             self.suppl_heating_status = False
 
-    @property
-    def thresholdMAX(self):
-        ''' Maximum temperature for supplementary heating '''
-        return self._thresholdMAX
-
-    @thresholdMAX.setter
-    def thresholdMAX(self, value):
-        self._thresholdMAX = value
-        self.__save()
 
     @property
     def thresholdMIN(self):
@@ -52,6 +40,7 @@ class Settings:
     def thresholdMIN(self, value):
         self._thresholdMIN = value
         self.__save()
+
 
     @property
     def suppl_heating(self):
@@ -80,7 +69,6 @@ class Settings:
 
         data = {
             'thresholdMIN' : self.thresholdMIN,
-            'thresholdMAX' : self.thresholdMAX,
             'suppl_heating' : self.suppl_heating,
             'suppl_heating_status' : self.suppl_heating_status
         }

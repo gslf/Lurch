@@ -1,1 +1,1 @@
-{"thresholdMAX": 30, "thresholdMIN": 27, "suppl_heating": false, "suppl_heating_status": false}
+{"suppl_heating": false, "suppl_heating_status": false, "thresholdMIN": 40}

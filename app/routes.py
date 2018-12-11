@@ -10,13 +10,11 @@ def index():
     if(form_data):
         # Read settings from form
         settings.thresholdMIN = int(form_data['threshold_min'])
-        settings.thresholdMAX = int(form_data['threshold_max'])
         settings.suppl_heating = True if form_data['status'] == 'enabled' else False
     
     # Update settings
     current_temp = raspberry.getTemp()
     thresholdMIN = settings.thresholdMIN
-    thresholdMAX = settings.thresholdMAX
 
     # Populate view
     shs = 'on' if settings.suppl_heating_status else 'off'
@@ -31,4 +29,4 @@ def index():
         loop.stop()
 
     # Load template
-    return render_template('index.html', temp = current_temp, shs = shs, heating_threshold_MAX = thresholdMAX, heating_threshold_MIN = thresholdMIN, sh = sh, sh_enabled = sh_enabled, sh_disabled = sh_disabled)
+    return render_template('index.html', temp = int(current_temp), shs = shs, heating_threshold_MIN = thresholdMIN, sh = sh, sh_enabled = sh_enabled, sh_disabled = sh_disabled)

@@ -1,0 +1,10 @@
+[Unit]
+Description=Lurch heating system managemant
+
+[Service]
+Type=idle
+Restart=always
+ExecStart=/usr/bin/python3 /home/pi/Lurch/lurch.py
+
+[Install]
+WantedBy=multi-user.target
