@@ -1,3 +1,4 @@
+import logging
 import RPi.GPIO as GPIO
 from w1thermsensor import W1ThermSensor
 
@@ -39,8 +40,8 @@ class Raspberry:
         '''
 
         if status:
-            print("Supplementary Heating ON")
+            logging.info("Supplementary Heating ON")
             GPIO.setup(self.rele,GPIO.OUT)
         else:
-            print("Supplementary Heating OFF")
+            logging.info("Supplementary Heating OFF")
             GPIO.setup(self.rele,GPIO.IN)

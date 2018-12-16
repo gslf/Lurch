@@ -1,4 +1,5 @@
 import time
+import logging
 from threading import Thread
 
 class MainLoop:
@@ -71,6 +72,7 @@ class MainLoop:
         self.running = True
         self.loop = Thread(target=self.__main_loop)
         self.loop.start()
+        logging.info('Lurch main loop started')
 
     def stop(self):
         '''Stop main loop Thread'''
@@ -78,3 +80,4 @@ class MainLoop:
         self.settings.suppl_heating_status = False
         self.running = False
         self.loop = None
+        logging.info('Lurch main loop stopped')
