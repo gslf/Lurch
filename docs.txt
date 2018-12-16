@@ -1,0 +1,174 @@
+Help on module __init__:
+
+NAME
+    __init__
+
+DESCRIPTION
+    # :#/ promezio
+    # Lurch
+    #
+
+DATA
+    app = <Flask '__init__'>
+    loop = <app.MainLoop.MainLoop object>
+    raspberry = <app.Raspberry.Raspberry object>
+    settings = <app.Settings.Settings object>
+
+FILE
+    /home/pi/Lurch/app/__init__.py
+
+
+Help on module MainLoop:
+
+NAME
+    MainLoop
+
+CLASSES
+    builtins.object
+        MainLoop
+    
+    class MainLoop(builtins.object)
+     |  Lurch main managemant loop
+     |  This class starts a thread that checks and manage the hardware every 30 seconds
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, settings, raspberry)
+     |      MainLoop class contructor
+     |      
+     |      Parameters
+     |      ----------
+     |      
+     |      settings : Settings 
+     |          App settings manager
+     |      
+     |      raspberry : Raspberry 
+     |          Hardware manager
+     |  
+     |  start(self)
+     |      Start the main loop in a Thread
+     |  
+     |  stop(self)
+     |      Stop main loop Thread
+     |  
+     |  updateRaspberry(self, raspberry)
+     |      Update hardware manager object
+     |      
+     |      Parameters
+     |      ----------
+     |      raspberry : Raspberry
+     |          New raspberry object
+     |  
+     |  updateSettings(self, settings)
+     |      Update app settings object
+     |      
+     |      Parameters
+     |      ----------
+     |      settings : Settings
+     |          New settings object
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FILE
+    /home/pi/Lurch/app/MainLoop.py
+
+
+Help on module Raspberry:
+
+NAME
+    Raspberry
+
+CLASSES
+    builtins.object
+        Raspberry
+    
+    class Raspberry(builtins.object)
+     |  Raspberry PI Hardware managemant
+     |  
+     |  Involved hardware:
+     |      - DS18B20 Temperature sensor
+     |      - 5v Rele switch
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self)
+     |      Raspberry class constructor with a basic setup
+     |  
+     |  getTemp(self)
+     |      A function that read temperature from sensor
+     |  
+     |  switchSupplementaryHeating(self, status)
+     |      A function that turn on/off the supplementary heating rele
+     |      
+     |      Involved hardware:
+     |          Switch 5v Rele status on 21 GPIO pin 
+     |      
+     |      Parameters
+     |      ----------
+     |      status : Boolean
+     |          Requested status of supplementaru heating
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+FILE
+    /home/pi/Lurch/app/Raspberry.py
+
+
+problem in app/routes.py - AssertionError: View function mapping is overwriting an existing endpoint function: index
+Help on module Settings:
+
+NAME
+    Settings
+
+CLASSES
+    builtins.object
+        Settings
+    
+    class Settings(builtins.object)
+     |  Lurch app settings managemant
+     |  This class use JSON file to read/write setting properties
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self)
+     |      Settings class contructor with basic configuration
+     |      
+     |      Settings file = settings.data
+     |      Default supplementary heating threshold = 60
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  suppl_heating
+     |      Get supplementary heating status setting
+     |  
+     |  suppl_heating_status
+     |      Get supplementary heating current status
+     |  
+     |  thresholdMIN
+     |      Get supplementary heating threshold
+
+FILE
+    /home/pi/Lurch/app/Settings.py
+
+

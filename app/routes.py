@@ -4,6 +4,7 @@ from app import app, settings, raspberry, loop
 @app.route('/',methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
+    '''Flask home page managemant'''
 
     # Fomr managemant
     form_data = request.form 

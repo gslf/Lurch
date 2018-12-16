@@ -2,13 +2,15 @@ import RPi.GPIO as GPIO
 from w1thermsensor import W1ThermSensor
 
 class Raspberry:
-    '''
-        Raspnerry PI Hardware managemant
-        DS18B20 Temperature sensor
-        5v Rele switch
+    '''Raspberry PI Hardware managemant
+    
+    Involved hardware:
+        - DS18B20 Temperature sensor
+        - 5v Rele switch
     '''
 
     def __init__(self):
+        '''Raspberry class constructor with a basic setup'''
         # Create sensor object
         self.temp_sensor = W1ThermSensor()
 
@@ -19,14 +21,22 @@ class Raspberry:
 
 
     def getTemp(self):
-        ''' Read temperature from sensor '''
-
+        ''' A function that read temperature from sensor '''
         return self.temp_sensor.get_temperature()
 
 
 
     def switchSupplementaryHeating(self,status):
-        ''' Switch 5v Rele status with 21 GPIO pin '''
+        ''' A function that turn on/off the supplementary heating rele
+
+        Involved hardware:
+            Switch 5v Rele status on 21 GPIO pin 
+        
+        Parameters
+        ----------
+        status : Boolean
+            Requested status of supplementaru heating
+        '''
 
         if status:
             print("Supplementary Heating ON")

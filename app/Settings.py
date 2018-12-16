@@ -8,6 +8,11 @@ class Settings:
     '''
 
     def __init__(self):
+        '''Settings class contructor with basic configuration
+        
+        Settings file = settings.data
+        Default supplementary heating threshold = 60
+        '''
         # Init properties
         self._thresholdMIN = None
         self._suppl_heating = None
@@ -33,39 +38,60 @@ class Settings:
 
     @property
     def thresholdMIN(self):
-        ''' Minimum temperature for supplementary heating '''
+        ''' Get supplementary heating threshold '''
         return self._thresholdMIN
 
     @thresholdMIN.setter
     def thresholdMIN(self, value):
+        '''Set supplementary heating threshold
+        
+        Parameters
+        ----------
+        value : Boolean
+            Supplementary heating threshold
+        '''
         self._thresholdMIN = value
         self.__save()
 
 
     @property
     def suppl_heating(self):
-        ''' Supplementary heating status '''
+        '''Get supplementary heating status setting '''
         return self._suppl_heating
 
     @suppl_heating.setter
     def suppl_heating(self, value):
+        '''Set supplementary heating current setting 
+        
+        Parameters
+        ----------
+        value : Boolean
+            Supplementary heating current setting
+        '''
         self._suppl_heating = value
         self.__save()
 
     @property
     def suppl_heating_status(self):
-        ''' Supplementary heating current status '''
+        '''Get supplementary heating current status '''
         return self._suppl_heating_status
 
     @suppl_heating_status.setter
     def suppl_heating_status(self, value):
+        '''Set supplementary heating current status
+        
+        Parameters
+        ----------
+        value : Boolean
+            Supplementary heating current status
+        '''
         self._suppl_heating_status = value
         self.__save()
 
 
 
     def __save(self):
-        ''' Write settings in settings.data file as JSON '''
+        '''Write settings in settings.data file as JSON '''
 
         data = {
             'thresholdMIN' : self.thresholdMIN,

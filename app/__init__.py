@@ -1,3 +1,10 @@
+#
+# :#/ promezio
+# Lurch
+#
+
+
+# Import app component
 from flask import Flask
 from app.MainLoop import MainLoop
 from app.Settings import Settings
@@ -11,5 +18,5 @@ settings = Settings()
 raspberry = Raspberry()
 loop = MainLoop(settings,raspberry)
 
-
+# Import routes
 from app import routes
