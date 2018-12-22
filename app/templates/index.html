@@ -2,13 +2,22 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>:#/ Lurch</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> > 
 
     <style>
       html, body{
         margin:0;
         padding:0;
+	font-family: 'Ubuntu', sans-serif;
       }
+
+      h5{
+	 font-size:20px;
+      }
+
       #navbar{
         margin:0;
         padding:0 15px;
@@ -21,10 +30,6 @@
       }
 
       #container{
-        display:flex;
-        flex-wrap:wrap;
-        flex-direction: row;
-        justify-content: center;
         align-items:center;
         width:100%;
         max-width:800px;
@@ -33,26 +38,30 @@
 
       #newline{
         width:100%;
-        height:1px;
+        height:1px;	
+	clear:both;
       }
 
       #temp_box{
-        flex-grow:2;
-        text-align:center;
+        float:left;
+        text-align:left;
         padding:15px;
       }
 
       #temp{
-        text-align:center;
+	font-size:40px;
+        text-align:left;
       }
 
       #control_panel{
-        flex-grow:8;
+        float:right;
         text-align:right;
         padding:15px;
       }
 
       #footer{
+	position:absolute;
+	bottom:0;
         padding:15px;
       }
 
@@ -63,6 +72,8 @@
       .off{
         color:red;
       }
+
+         
     </style>
   </head>
 
@@ -73,35 +84,31 @@
 
     <div id="container">
       <div id="temp_box">
-        <div id="temp_title">
-          <h5>Temperature</h5>
-        </div>
-        <div id="temp"><h1>{{ temp }}°</h1></div>
+	<div id="temp"><i class="fas fa-thermometer-three-quarters"></i> {{ temp }}°</div>
+	
+	<br>&nbsp;<br>
+	Suppl. heating: <span class="{{ shs }}">{{ shs }} <i class="fas fa-power-off"></i></span><br>
+	Auto heating: <span class="{{ sh }}">{{ sh }} <i class="fas fa-power-off"></i></span><br>
+        Auto heating threshold: <span >{{ heating_threshold_MIN }}°</span>
+
       </div>
 
       <div id="control_panel">
-        <h5>Control Panel</h5>
-        Suppl. heating: <span class="{{ shs }}">{{ shs }}</span><br>
-        Auto heating managemant: <span class="{{ sh }}">{{ sh }}</span><br>
-        Suppl. heating threshold MIN: <span >{{ heating_threshold_MIN }}°</span>
+         <form action="/" method="POST">
+	     <h5><i class="fas fa-sliders-h"></i> Settings</h5>
+             Threshold: 
+             <input type="text" name="threshold_min" value="{{ heating_threshold_MIN }}"><br>&nbsp;<br>
+
+             Status: 
+             <input type="radio" name="status" value="enabled" {{ sh_enabled }}> ON 
+             <input type="radio" name="status" value="disabled" {{ sh_disabled }}> OFF<br>&nbsp;<br>
+	    
+             <input type="submit" value="Save">
+         </form>
       </div>
 
       <div id="newline"> </div>
 
-      <div id="auto_heating_settings">
-        <form action="/" method="POST">
-          <h5>Supplementary heating settings</h5>
-            Threshold MIN:<br>
-            <input type="text" name="threshold_min" value="{{ heating_threshold_MIN }}"><br>&nbsp;<br>
-
-            Status:<br>
-            <input type="radio" name="status" value="enabled" {{ sh_enabled }}> Enabled<br>
-            <input type="radio" name="status" value="disabled" {{ sh_disabled }}> Disabled<br>&nbsp;<br>
-
-            <input type="submit" value="Save">
-        </form>
-      </div>  
-    </div>
 
     <div id="footer">
         Lurch is an open source project by <a href="https://www.promezio.it">:#/ promezio</a>
