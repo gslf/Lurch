@@ -1,0 +1,175 @@
+/*  ------------------------------------------------ 
+    // HEADER
+*/
+
+html,body{
+    padding:0;
+    margin:0;
+    font-family: 'Comfortaa', cursive;
+    min-width:310px;
+}
+
+#clear{
+    clear: both;
+}
+
+header{
+    height:60px;
+    background-color:  #2f2f2f;
+    padding:15px;
+    display: flex;
+    justify-items: center;
+}
+
+#logo{
+    padding: 15px;
+    color:white;
+    font-size: 18pt;
+    text-align:center;
+}
+
+.ON{
+    color: green;
+}
+
+.OFF{
+    color:red;
+}
+
+
+
+/*  ------------------------------------------------
+    // LOGIN
+*/
+
+#login_box{
+    width:400px;
+    margin: 40px auto;
+    padding-bottom:40px;
+    background-color: lightgray;
+    text-align:center;
+}
+
+#login_title{
+    width: 100%;
+    font-size:18pt;
+    height: 80px;
+    line-height: 80px;
+    margin-bottom:40px;
+    background-color: #2f2f2f;
+    color: white;
+}
+
+input.form-login{
+    width:300px;
+    margin: 8px;
+    padding: 8px;
+    background-color: white;
+    text-align:center;
+    font-size: 14pt;
+}
+
+input.form-login:focus{
+    background-color: white;
+    outline: none;
+}
+
+input.form-login:hover{
+    background-color: white;
+    outline: none;
+}
+
+input.form-login:active{
+    background-color: white;
+    outline: none;
+}
+
+button.form-login{
+    width:300px;
+    margin: 8px;
+    padding: 8px;
+    background-color:#2f2f2f;
+    color:white;
+    text-align:center;
+    font-size: 14pt;
+}
+
+
+/*  ------------------------------------------------
+    // CONTROLLER
+*/
+
+#controller{
+    width:100%;
+    max-width:690px;
+    min-width:310px;
+    min-height: 400px;
+    margin:40px auto;
+    background-color: lightgrey;
+    border:1px solid #2f2f2f;
+    border-radius: 25px;
+}
+
+#controller_screen{
+    width: 250px;
+    margin:15px;
+    padding:15px;
+    background-color: whitesmoke;
+    border:1px solid #2f2f2f;
+    border-radius: 10px;
+    float: left;
+}
+
+#controller_screen_temp{
+    font-size:25pt;
+    margin-bottom:10px;
+    text-align: right;
+}
+
+#controller_screen_settings{
+    padding-top:15px;
+    border-top: 1px solid #2f2f2f;
+    text-align: right;
+}
+
+.controller_screen_special_text{
+    font-family: 'Monofett', cursive;
+}
+
+#controller_settings{
+    float: left;
+    text-align:center;
+    width: 300px;
+    margin:15px;
+    padding:15px;
+}
+
+input[type="text"] {
+    width: 50px;
+    border: 1px solid #CCC;
+}
+input[type="submit"] {
+    width: 100%;
+}
+
+#controller_legenda{
+    padding:20px;
+}
+
+#controller_legenda_footer{
+    font-size:10pt;
+    padding-top:30px;
+}
+
+@media screen and (max-width: 780px) {
+    #controller_screen{
+        float:none;
+        width:300px;
+        margin: 20px auto;
+    }
+    #controller_settings{
+        float:none;
+        margin:0 auto;
+        width:300px;
+    }
+}

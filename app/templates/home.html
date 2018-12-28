@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title> °Lurch by :#/promezio </title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <!-- VIEWPORT -->
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+
+        <!-- CSS -->
+        <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+
+        <!-- FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Monofett" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+        <!-- PAGE HEADER -->
+        <header>
+            <div id="logo">
+                °Lurch 
+            </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <div id="controller">
+            <div id="controller_screen">
+                <div id="controller_screen_temp">
+                    <span><i class="fas fa-temperature-high"></i></span> <span class="controller_screen_special_text"> {{ temp }} °</span>
+                </div> 
+                
+                <div id="controller_screen_settings">
+                     Heater is <span class="controller_screen_special_text {{ shs }}"> {{ shs }} &gt;</span><br>
+                     Heating automation is <span class="controller_screen_special_text {{ sh }}"> {{ sh }} &gt;</span><br>
+                     Heating threshold is <span class="controller_screen_special_text"> {{ heating_threshold_MIN }} °</span>
+                </div>
+            </div>
+
+            
+            <div id="controller_settings">
+                <form action="/" method="POST">
+                    <i class="fas fa-sliders-h"></i> <b>Settings</b><br>&nbsp;<br>
+
+                    Threshold: 
+                    <input type="text" name="threshold_min" value="{{ heating_threshold_MIN }}"> °<br>&nbsp;<br>
+
+                    Status: 
+                    <input type="radio" name="status" value="enabled" {{ sh_enabled }}> ON 
+                    <input type="radio" name="status" value="disabled" {{ sh_disabled }}> OFF<br>&nbsp;<br>
+
+                    <input type="submit" value="Save">
+                </form>
+            </div>
+
+            <div id="clear"></div>
+
+            <div id="controller_legenda">
+                <div>
+                    <b>Heating:</b> Current heating resistor status<br>
+                    <b>Heating automation:</b> Automatic heating resistor managemant status<br>
+                    <b>Heating threshold:</b> Automatic heating turn on the resistor if water temperature is lower than this threshold<br>
+                </div>
+
+                <div id="controller_legenda_footer">
+                    <b>°Lurch</b> is an Open Source project, to manage a solar heating system. Based on Raspberry PI hardware, powered by <a href="https://www.promezio.it"><b>:#/</b>promezio</a> and hosted on <a href="https://github.com/Promezio/Lurch">GitHub</a>.
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

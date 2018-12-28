@@ -30,4 +30,4 @@ def index():
         loop.stop()
 
     # Load template
-    return render_template('index.html', temp = int(current_temp), shs = shs, heating_threshold_MIN = thresholdMIN, sh = sh, sh_enabled = sh_enabled, sh_disabled = sh_disabled)
+    return render_template('home.html', temp = int(current_temp), shs = shs, heating_threshold_MIN = thresholdMIN, sh = sh, sh_enabled = sh_enabled, sh_disabled = sh_disabled)
